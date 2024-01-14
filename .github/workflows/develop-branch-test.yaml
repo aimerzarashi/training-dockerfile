@@ -1,0 +1,33 @@
+name: Build Docker image and push to Docker Hub
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+jobs:
+  develop-branch-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      #Node.js環境を構築する
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.1.0'
+
+      # Node.jsのバージョンを確認する
+      - name: Check Node.js version
+        run: node -v
+
+      # Node.jsの依存関係をインストールする
+      - name: Install dependencies
+        run: npm install
+
+      # Lintを実行する
+      - name: Lint
+        run: npm run lint
