@@ -2,7 +2,7 @@ version: '3'
 services:
   web-ui:
     container_name: web-ui
-    image: aimerzarashi/training:0.0.1
+    image: aimerzarashi/training-dockerfile:0.0.1
     tty: true
     ports:
       - 3000:3000
