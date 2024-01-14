@@ -1,13 +1,23 @@
 name: Build Docker image and push to Docker Hub
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
-  workflow_dispatch:
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "app/**"
+      - "public/**"
+      - "next-env.d.ts"
+      - "next.config.js"
+      - "postcss.config.js"
+      - "tailwind.config.ts"
+      - "tsconfig.json"
 
 jobs:
-  dockerhub-build-and-push:
+  dockerhub-push:
     runs-on: ubuntu-latest
     steps:
       - name: GitHub Check out the repo
