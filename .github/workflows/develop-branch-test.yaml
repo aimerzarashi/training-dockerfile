@@ -1,10 +1,20 @@
-name: Build Docker image and push to Docker Hub
+name: Develop branch test
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - develop
-  workflow_dispatch:
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "app/**"
+      - "public/**"
+      - "next-env.d.ts"
+      - "next.config.js"
+      - "postcss.config.js"
+      - "tailwind.config.ts"
+      - "tsconfig.json"
 
 jobs:
   develop-branch-test:
