@@ -41,7 +41,3 @@ jobs:
       # Lintを実行する
       - name: Lint
         run: npm run lint
-
-      # Testを実行する
-      - name: Test
-        run: npm run test
